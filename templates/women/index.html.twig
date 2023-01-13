@@ -6,15 +6,331 @@
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .chartPie {
+        width: 250px;
+        height: 250px; 
+        display:inline-block;
+        margin-bottom: 30px;
+        margin-top: 30px;
+        }
+    h1, h2,h3 {
+        margin: auto;
+        text-align: center;
+    }
+    .chartContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Women at work</h1>
+    <h2>Statistiques d'embauche de femmes dans l'entreprise</h2>
+    <h3>Proportion de femmes et d'hommes au total par secteur</h3>
 
-    This friendly message is coming from:
+    <div class="chartContainer">
+        <div class="chartPie">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="chartPie">
+            <canvas id="myChart1"></canvas>
+        </div>
+        <div class="chartPie">
+            <canvas id="myChart2"></canvas>
+        </div>
+    </div>
+    <div class="chartContainer">
+        <div class="chartPie">
+            <canvas id="myChart3"></canvas>
+        </div>
+        <div class="chartPie">
+            <canvas id="myChart4"></canvas>
+        </div>
+        <div class="chartPie">
+            <canvas id="myChart5"></canvas>
+        </div>
+    </div>
+    <div class="chartContainer">
+        <div class="chartPie">
+            <canvas id="myChart6"></canvas>
+        </div>
+        <div class="chartPie">
+            <canvas id="myChart7"></canvas>
+        </div>
+        <div class="chartPie">
+            <canvas id="myChart8"></canvas>
+        </div>
+    </div>
+
+    {# This friendly message is coming from:
     <ul>
         <li>Your controller at <code><a href="{{ '/Applications/MAMP/htdocs/projets/employees/src/Controller/WomenController.php'|file_link(0) }}">src/Controller/WomenController.php</a></code></li>
         <li>Your template at <code><a href="{{ '/Applications/MAMP/htdocs/projets/employees/templates/women/index.html.twig'|file_link(0) }}">templates/women/index.html.twig</a></code></li>
-    </ul>
+    </ul> #}
 </div>
+<script>
+  const ctx = document.getElementById('myChart')
+
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Femmes', 'Hommes'],
+      datasets: [{
+        label: 'Nombre total',
+        data: [12, 19],
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)'
+        ],
+      }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Marketing'
+            }
+        }
+    },
+    
+  });
+  const ctx1 = document.getElementById('myChart1')
+
+  new Chart(ctx1, {
+    type: 'pie',
+    data: {
+      labels: ['Femmes', 'Hommes'],
+      datasets: [{
+        label: 'Nombre total',
+        data: [12, 19],
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)'
+        ],
+      }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Finance'
+            }
+        }
+    },
+    
+    
+  });
+  const ctx2 = document.getElementById('myChart2')
+
+  new Chart(ctx2, {
+    type: 'pie',
+    data: {
+      labels: ['Femmes', 'Hommes'],
+      datasets: [{
+        label: 'Nombre total',
+        data: [12, 19],
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)'
+        ],
+      }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Human Resources'
+            }
+        }
+    },
+    
+  });
+  const ctx3 = document.getElementById('myChart3')
+
+  new Chart(ctx3, {
+    type: 'pie',
+    data: {
+      labels: ['Femmes', 'Hommes'],
+      datasets: [{
+        label: 'Nombre total',
+        data: [12, 19],
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)'
+        ],
+      }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Production'
+            }
+        }
+    },
+    
+  });
+  const ctx4 = document.getElementById('myChart4')
+
+  new Chart(ctx4, {
+    type: 'pie',
+    data: {
+      labels: ['Femmes', 'Hommes'],
+      datasets: [{
+        label: 'Nombre total',
+        data: [12, 19],
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)'
+        ],
+      }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Development'
+            }
+        }
+    },
+    
+  });
+  const ctx5 = document.getElementById('myChart5')
+
+  new Chart(ctx5, {
+    type: 'pie',
+    data: {
+      labels: ['Femmes', 'Hommes'],
+      datasets: [{
+        label: 'Nombre total',
+        data: [12, 19],
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)'
+        ],
+      }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Quality Management'
+            }
+        }
+    },
+    
+  });
+  const ctx6 = document.getElementById('myChart6')
+
+  new Chart(ctx6, {
+    type: 'pie',
+    data: {
+      labels: ['Femmes', 'Hommes'],
+      datasets: [{
+        label: 'Nombre total',
+        data: [12, 19],
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)'
+        ],
+      }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Sales'
+            }
+        }
+    },
+    
+  });
+  const ctx7 = document.getElementById('myChart7')
+
+  new Chart(ctx7, {
+    type: 'pie',
+    data: {
+      labels: ['Femmes', 'Hommes'],
+      datasets: [{
+        label: 'Nombre total',
+        data: [12, 19],
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)'
+        ],
+      }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Research'
+            }
+        }
+    },
+    
+  });
+  const ctx8 = document.getElementById('myChart8')
+
+  new Chart(ctx8, {
+    type: 'pie',
+    data: {
+      labels: ['Femmes', 'Hommes'],
+      datasets: [{
+        label: 'Nombre total',
+        data: [12, 19],
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)'
+        ],
+      }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Customer Service'
+            }
+        }
+    },
+    
+  })
+</script>
 {% endblock %}
