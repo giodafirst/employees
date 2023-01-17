@@ -12,7 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Department
 {
     #[ORM\Id]
-    #[ORM\None]
     #[ORM\Column(name: '`dept_no`', type: 'string')]
     private ?string $id = null;
 
@@ -34,9 +33,16 @@ class Department
     #[ORM\ManyToMany(targetEntity: Employee::class, inversedBy: 'departments')]
     private Collection $managers;
 
+    #[ORM\JoinTable(name: 'dept_title')]
+    #[ORM\JoinColumn(name: 'dept_no', referencedColumnName: 'dept_no')]
+    #[ORM\InverseJoinColumn(name: 'title_no', referencedColumnName: 'title_no')]
+    #[ORM\ManyToMany(targetEntity: Title::class, mappedBy: 'departments')]
+    private Collection $titles;
+
     public function __construct()
     {
         $this->managers = new ArrayCollection();
+        $this->titles = new ArrayCollection();
     }
 
     public function getId(): ?string
@@ -114,5 +120,36 @@ class Department
         $this->managers->removeElement($manager);
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, DeptTitle>
+     */
+    public function getTitles(): Collection
+    {
+        return $this->titles;
+    }
+
+    public function addTitle(Title $title): self
+    {
+        if (!$this->titles->contains($title)) {
+            $this->titles->add($title);
+            $title->addDepartment($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTitle(Title $title): self
+    {
+        if ($this->deptTitles->removeElement($deptTitle)) {
+            $title->removeDepartment($this);
+        }
+
+        return $this;
+    }
+    public function __toString()
+    {
+        return "{$this->getDeptName()}";
     }
 }

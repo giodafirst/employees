@@ -42,17 +42,15 @@ class EmployeeRepository extends ServiceEntityRepository
 //    /**
 //     * @return Employee[] Returns an array of Employee objects
 //     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('e.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findWomen(string $gender): array
+{
+    return $this->createQueryBuilder('e')
+        ->andWhere('e.gender = :gender')
+        ->setParameter('gender', $gender)
+        ->getQuery()
+        ->getResult()
+    ;
+}
 
 //    public function findOneBySomeField($value): ?Employee
 //    {

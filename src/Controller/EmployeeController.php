@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Doctrine\Common\Persistence\ManagerRegistry;
+
 
 
 #[Route('/employee')]
@@ -22,6 +24,15 @@ class EmployeeController extends AbstractController
         return $this->render('employee/index.html.twig', [
             'employees' => $employeeRepository->findAll(),
         ]);
+    }
+
+    #[Route('/womall', name: 'app_womall', methods: ['GET'])]
+    public function showWomen(EmployeeRepository $employeeRepository): Response
+    {
+        $repository = $employeeRepository->findWomen($gender);
+        dd($repository);
+        return $this->render('employee/index.html.twig');
+
     }
 
     #[Route('/new', name: 'app_employee_new', methods: ['GET', 'POST'])]

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Title index
+{% endblock %}
+
+{% block body %}
+		<h1>Offres d'emploi</h1>
+
+		<table class="table">
+			<thead class="table-primary">
+				<tr>
+					<th>Départements</th>
+					<th>Postes</th>
+					<th>Postuler</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for title in titles %}
+						{% for department in title.departments %}
+						<tr>
+                            <td>
+								<p>{{ department }}</p>
+							</td>
+							<td>
+								<p>{{ title.title }}</p>
+							</td>
+							<td>
+								<a href="{{ path('app_offers_form') }}">Postuler</a>
+							</td>
+                        </tr>    
+						{% endfor %}
+				{% else %}
+					<tr>
+						<td colspan="4">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
