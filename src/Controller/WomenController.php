@@ -11,25 +11,25 @@ use Doctrine\DBAL\DriverManager;
 
 class WomenController extends AbstractController
 {
-    #[Route('/women', name: 'app_women')]
+    /*#[Route('/women', name: 'app_women')]
     public function index(Connection $connection)
     {
         $query = "SELECT * FROM employees WHERE gender = 'F'";
         $stmt = $connection->prepare($query);
         $stmt->executeQuery();
-        $employees = $stmt/*->fetchAllAssociative()*/;
+        $employees = $stmt/*->fetchAllAssociative();
         return $this->render('employee/index.html.twig', [
             'employees' => $employees,
         ]);
-    }
+    }*/
         
-    /*#[Route('/women', name: 'app_women')]
+    #[Route('/women', name: 'app_women')]
     public function index(): Response
     {
         return $this->render('women/index.html.twig', [
             'controller_name' => 'WomenController',
         ]);
-    }*/
+    }
     /*#[Route('/all', name: 'app_women_all')]
     private $doctrine;
     public function __construct(ManagerRegistry $doctrine)

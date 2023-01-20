@@ -26,14 +26,14 @@ class EmployeeController extends AbstractController
         ]);
     }
 
-    #[Route('/womall', name: 'app_womall', methods: ['GET'])]
+    /*#[Route('/womall', name: 'app_womall', methods: ['GET'])]
     public function showWomen(EmployeeRepository $employeeRepository): Response
     {
         $repository = $employeeRepository->findWomen($gender);
-        dd($repository);
+        //dd($repository);
         return $this->render('employee/index.html.twig');
 
-    }
+    }*/
 
     #[Route('/new', name: 'app_employee_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EmployeeRepository $employeeRepository, UserPasswordHasherInterface $passwordHasher): Response

@@ -39,10 +39,24 @@ class EmployeeRepository extends ServiceEntityRepository
         }
     }
 
+    /*public function findLatest(): int
+    {
+
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = "SELECT `emp_no` FROM `employees` ORDER BY `created_at` DESC LIMIT 1";
+
+        $resultSet = $conn->executeQuery($sql);
+        //dd($resultSet->fetchOne());
+        return  (int)$resultSet->fetchOne();
+        // returns an array of arrays (i.e. a raw data set)
+
+    }*/
+
 //    /**
 //     * @return Employee[] Returns an array of Employee objects
 //     */
-    public function findWomen(string $gender): array
+   public function findWomen(string $gender): array
 {
     return $this->createQueryBuilder('e')
         ->andWhere('e.gender = :gender')
